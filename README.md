@@ -12,6 +12,11 @@ Finding the Google-rated restaurants that locals frequent in Japan has been noto
 - Generates a CSV file with combined data
 - Performs statistical analysis on rating differences
 
+## Data Pipeline
+
+- Web Scraping: Tabelog.com（食べログ）
+- API: Google Places API
+
 ## Requirements
 
 - Python 3.7+

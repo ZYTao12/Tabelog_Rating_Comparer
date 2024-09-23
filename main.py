@@ -13,6 +13,7 @@ restaurants = []
 location = input("Enter the location (city or prefecture, e.g., tokyo, aomori, etc.):")
 print("If the location is not found, the data will be based on all restaurants in Japan.")
 print("Please wait for a moment... Scraping data from tabelog.com and Google Places API...")
+# Scraping three pages of tabelog.com
 for page in range(1,4):
     url = "https://tabelog.com/" + location + "/rstLst/" + str(page)
     response = requests.get(url)
@@ -47,9 +48,10 @@ for restaurant in restaurants:
             restaurant['google_rating'] = candidate.get('rating', 'No rating found')
             restaurant['address'] = candidate.get('formatted_address', 'No address found')
         else:
-            restaurant['places_data'] = 'No data found'
+            restaurant['google_rating'] = ''
+            restaurant['address'] = ''
     else:
-        restaurant['places_data'] = 'Error fetching data'
+        restaurant['error'] = 'Error fetching data'
 
 # Convert to DataFrame
 df = pd.DataFrame(restaurants)

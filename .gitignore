@@ -37,3 +37,6 @@ coverage/
 *.swp
 *.bak
 *.old
+
+# Ignore virtual environment directory
+data-cleaning/
